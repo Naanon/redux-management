@@ -2,6 +2,13 @@ import { useEffect } from 'react';
 import { useAppDispatch, useAppSelector } from './redux/hooks';
 import { getUsers } from './redux/userSlice'
 
+type AppProps = {
+  id: number
+  name: string
+  username: string
+  email: string
+}
+
 export function App() {
   const dispatch = useAppDispatch()
 
@@ -13,7 +20,7 @@ export function App() {
 
   return (
     <>
-      {users?.map((user: any) => (
+      {users?.map((user: AppProps) => (
         <div key={user.id}>
           <h2>{user.name}</h2>
           <h3>{user.username}</h3>
